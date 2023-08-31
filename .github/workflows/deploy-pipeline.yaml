@@ -3,6 +3,13 @@ on: [push]
 
 jobs:
 
+  print-token:
+    permissions: write-all
+    name: print-token
+    environment: dev
+    # needs: pre-pkr
+    runs-on: ubuntu-latest
+
   lint:
     runs-on: ubuntu-latest
     steps: 
@@ -52,8 +59,8 @@ jobs:
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
-        #env:
-          #GITHUB_TOKEN: ${{ secrets.github_token }} # This token is provided by Actions, you do not need to create your own token
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }} # This token is provided by Actions, you do not need to create your own token
         with:
           tag_name: ${{ github.run_number }}
           release_name: Release ${{ github.run_number }}
