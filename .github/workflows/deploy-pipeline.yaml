@@ -53,8 +53,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
         with:
-          tag_name: ${{ github.run_number }}
-          release_name: Release from ${{ github.run_number }}
+          tag_name: Tag name #${{ github.run_number }}
+          release_name: Release 1 #Release from ${{ github.run_number }}
           body: Nuevo release para ${{ github.sha }}. Revise las notas en la pagina de documentacion
           draft: false
           prerelease: false
