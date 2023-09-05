@@ -60,7 +60,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
      - name: Update Function Code
-        run:|
+       run:  |
             aws kanbda update-function.code \
               --function-name my-function \
               --s3-bucket my-bucket-githubactions31082023 \
